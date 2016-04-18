@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: rv-install
+# Cookbook Name:: gemfire-install
 # Recipe:: libinstall
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.

@@ -10,7 +10,7 @@ bin_source_bucket = node['gemfire-install']['install']['bin_source_bucket']
 gemfire_major_version = node['gemfire-install']['install']['gemfire_major_version']
 gemfire_minor_version = node['gemfire-install']['install']['gemfire_minor_version']
 
-install_file = "Pivotal_GemFire_/#{gemfire_major_version}/_/#{gemfire_minor_version}/_Linux.zip"
+install_file = "Pivotal_GemFire_#{gemfire_major_version}_#{gemfire_minor_version}_Linux.zip"
 bin_source_file = "#{bin_source_bucket}/#{install_file}"
 
 bin_target_tmp = node['gemfire-install']['install']['bin_target_tmp']

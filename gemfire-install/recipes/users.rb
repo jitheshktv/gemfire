@@ -7,11 +7,15 @@
 # Recipe to create the user and group
 
 # Create group. Need to add not_if
-group node['gemfire-install']['install']['group']
+
+user_name = node['gemfire-install']['install']['user']
+group_name = node['gemfire-install']['install']['group']
+
+group group_name
 
 # Create user. Needs to add not_if
-user node['gemfire-install']['install']['user'] do
-  group node['gemfire-install']['install']['group']
-  home "/home/#{node['gemfire-install']['install']['user']}"
+user user_name do
+  group group_name
+  home "/home/#{user_name}"
   shell '/bin/bash'
 end

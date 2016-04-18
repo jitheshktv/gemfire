@@ -7,6 +7,5 @@
 include_recipe 'java'
 include_recipe 'gemfire-install::users'
 include_recipe 'gemfire-install::directories'
-include_recipe 'gemfire-install::libinstall'
 include_recipe 'gemfire-install::s3download'
 include_recipe 'gemfire-install::install'

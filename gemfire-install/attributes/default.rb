@@ -5,7 +5,7 @@ default['gemfire-install']['install']['gemfire_install_dir'] = '/apps/gemfire'
 default['gemfire-install']['install']['gemfire_config_dir'] = '/apps/gemfire/config'
 default['gemfire-install']['install']['logs_home_dir'] = '/logs/gemfire'
 
-default['gemfire-install']['install']['bin_source_bucket'] = 'https://s3.amazonaws.com/gemfire-install/'
+default['gemfire-install']['install']['bin_source_bucket'] = 'https://s3.amazonaws.com/gemfire-install'
 default['gemfire-install']['install']['gemfire_major_version'] = '8.2.0'
 default['gemfire-install']['install']['gemfire_minor_version'] = 'b17919'
 default['gemfire-install']['install']['bin_target_tmp'] = '/tmp'
