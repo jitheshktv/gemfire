@@ -1,5 +1,6 @@
 default['gemfire-install']['install']['group'] = 'gemuser'
 default['gemfire-install']['install']['user'] = 'gemuser'
+default['gemfire-install']['install']['home'] = '/home'
 
 default['gemfire-install']['install']['gemfire_install_dir'] = '/apps/gemfire'
 default['gemfire-install']['install']['gemfire_config_dir'] = '/apps/gemfire/config'
