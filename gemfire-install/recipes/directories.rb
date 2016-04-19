@@ -7,12 +7,12 @@
 
 # Create the directories
 
-gemfire_install_dir = node['gemfire-install']['install']['gemfire_install_dir']
-gemfire_config_dir = node['gemfire-install']['install']['gemfire_config_dir']
-logs_home_dir = node['gemfire-install']['install']['logs_home_dir']
+gemfire_install_dir = node['gemfire']['install']['gemfire_install_dir']
+gemfire_config_dir = node['gemfire']['install']['gemfire_config_dir']
+logs_home_dir = node['gemfire']['install']['logs_home_dir']
 
-user_name = node['gemfire-install']['install']['user']
-group_name = node['gemfire-install']['install']['group']
+user_name = node['gemfire']['install']['user']
+group_name = node['gemfire']['install']['group']
 
 [gemfire_install_dir, logs_home_dir, gemfire_config_dir].each do |dir_name|
   directory dir_name do

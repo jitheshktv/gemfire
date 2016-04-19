@@ -1,3 +1,3 @@
 # gemfire-install
 
-The cookbook to install Pivotal Gemfire.
+Cookbook to Install and uninstall Pivotal Gemfire

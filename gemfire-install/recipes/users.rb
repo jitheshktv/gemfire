@@ -8,9 +8,9 @@
 
 # Create group. Need to add not_if
 
-user_name = node['gemfire-install']['install']['user']
-group_name = node['gemfire-install']['install']['group']
-user_home = "#{node['gemfire-install']['install']['home']}/#{user_name}"
+user_name = node['gemfire']['install']['user']
+group_name = node['gemfire']['install']['group']
+user_home = "#{node['gemfire']['install']['home']}/#{user_name}"
 
 # Create group
 group group_name

@@ -7,17 +7,17 @@
 # The recipe to perform post install configurations
 #
 
-gemfire_install_dir = node['gemfire-install']['install']['gemfire_install_dir']
-gemfire_major_version = node['gemfire-install']['install']['gemfire_major_version']
-gemfire_minor_version = node['gemfire-install']['install']['gemfire_minor_version']
-user_name = node['gemfire-install']['install']['user']
-group_name = node['gemfire-install']['install']['group']
-user_home = "#{node['gemfire-install']['install']['home']}/#{user_name}"
+gemfire_install_dir = node['gemfire']['install']['gemfire_install_dir']
+gemfire_major_version = node['gemfire']['install']['gemfire_major_version']
+gemfire_minor_version = node['gemfire']['install']['gemfire_minor_version']
+user_name = node['gemfire']['install']['user']
+group_name = node['gemfire']['install']['group']
+user_home = "#{node['gemfire']['install']['home']}/#{user_name}"
 
 install_file = "Pivotal_GemFire_#{gemfire_major_version}_#{gemfire_minor_version}_Linux.zip"
 gemfire_home = "#{gemfire_install_dir}/#{gemfire_major_version}/#{gemfire_minor_version}"
 gemfire_version_dir = '/var/gemfire'
-gemfire_version_file = "#{gemfire_version_dir}/gemfire.version"
+gemfire_version_file = "#{gemfire_version_dir}/gemfire.version_#{gemfire_major_version}_#{gemfire_minor_version}"
 profile = "#{user_home}/.profile"
 bash_profile = "#{user_home}/.bash_profile"
 java_home = node['java']['java_home']
