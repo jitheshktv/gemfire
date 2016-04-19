@@ -14,7 +14,7 @@ platforms:
   - name: centos-7.1
 
 suites:
-  - name: default
+  - name: gemfire
     run_list:
       - recipe[gemfire-install::default]
     attributes:
