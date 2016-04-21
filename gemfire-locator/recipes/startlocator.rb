@@ -18,7 +18,7 @@ group_name = node['gemfire']['config_locator']['group']
 ENV['JAVA_HOME'] = node['gemfire']['config_locator']['java_home']
 ENV['GEMFIRE'] = node['gemfire']['config_locator']['gemfire_home']
 ENV['GF_JAVA'] = "#{node['gemfire']['config_locator']['java_home']}/bin/java"
-ENV['PATH'] = "#{node['gemfire']['config_locator']['java_home']}/bin:#{node['gemfire']['config_locator']['gemfire_home']}/bin"
+# ENV['PATH'] = "#{ENV['PATH']}:#{node['gemfire']['config_locator']['java_home']}/bin:#{node['gemfire']['config_locator']['gemfire_home']}/bin"
 
 logs_home_dir = node['gemfire']['config_locator']['logs_home_dir']
 locator_name = "#{node['hostname']}.locator.#{locator_port}"
@@ -50,8 +50,14 @@ template 'startlocator' do
   )
 end
 
+# log 'printing the PATH environment variable' do
+#   message "PATH is #{ENV['PATH']}"
+#   level :debug
+# end
+
 execute 'start locator' do
-  command "gfsh run --file=#{locator_start}"
+  # command "gfsh run --file=#{locator_start}"
+  command "#{node['gemfire']['config_locator']['gemfire_home']}/bin/gfsh run --file=#{locator_start}"
   cwd locator_dir
   user user_name
   group group_name
