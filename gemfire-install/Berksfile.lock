@@ -1,0 +1,12 @@
+DEPENDENCIES
+  gemfire-install
+    path: .
+    metadata: true
+  java (~> 1.36.0)
+
+GRAPH
+  apt (3.0.0)
+  gemfire-install (0.1.0)
+    java (~> 1.36.0)
+  java (1.36.0)
+    apt (>= 0.0.0)
