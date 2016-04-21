@@ -56,8 +56,8 @@ log 'printing the PATH environment variable' do
 end
 
 execute 'start locator' do
-  command "gfsh run --file=#{locator_start}"
-  # command "#{node['gemfire']['config_locator']['gemfire_home']}/bin/gfsh run --file=#{locator_start}"
+  # command "gfsh run --file=#{locator_start}"
+  command "#{node['gemfire']['config_locator']['gemfire_home']}/bin/gfsh run --file=#{locator_start}"
   cwd locator_dir
   user user_name
   group group_name

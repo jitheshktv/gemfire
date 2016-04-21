@@ -2,11 +2,16 @@ DEPENDENCIES
   gemfire-install
     path: .
     metadata: true
+  gemfire-locator
+    git: https://github.com/jitheshktv/gemfire.git
+    revision: c0b242567a05a4ddd9688c260f8009915b217f50
+    rel: gemfire-locator
   java (~> 1.36.0)
 
 GRAPH
   apt (3.0.0)
   gemfire-install (0.1.0)
     java (~> 1.36.0)
+  gemfire-locator (0.1.0)
   java (1.36.0)
     apt (>= 0.0.0)
