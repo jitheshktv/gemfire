@@ -15,11 +15,6 @@ jmx_mgr_port = node['gemfire']['config_locator']['jmx_mgr_port']
 user_name = node['gemfire']['config_locator']['user']
 group_name = node['gemfire']['config_locator']['group']
 
-ENV['JAVA_HOME'] = node['gemfire']['config_locator']['java_home']
-ENV['GEMFIRE'] = node['gemfire']['config_locator']['gemfire_home']
-ENV['GF_JAVA'] = "#{node['gemfire']['config_locator']['java_home']}/bin/java"
-ENV['PATH'] = "#{ENV['PATH']}:#{node['gemfire']['config_locator']['java_home']}/bin:#{node['gemfire']['config_locator']['gemfire_home']}/bin"
-
 logs_home_dir = node['gemfire']['config_locator']['logs_home_dir']
 locator_name = "#{node['hostname']}.locator.#{locator_port}"
 locator_dir = "#{logs_home_dir}/#{locator_name}"
@@ -43,11 +38,20 @@ template 'startlocator' do
   path locator_start
   variables(
     var_locator_heap: locator_heap,
-    var_locator_port: locator_heap,
+    var_locator_port: locator_port,
     var_locator_name: locator_name,
     var_locator_list: locator_list,
     var_jmx_mgr_port: jmx_mgr_port
   )
+end
+
+ruby_block 'set environment variables' do
+  block do
+    ENV['JAVA_HOME'] = node['gemfire']['config_locator']['java_home']
+    ENV['GEMFIRE'] = node['gemfire']['config_locator']['gemfire_home']
+    ENV['GF_JAVA'] = "#{node['gemfire']['config_locator']['java_home']}/bin/java"
+    ENV['PATH'] = "#{ENV['PATH']}:#{node['gemfire']['config_locator']['java_home']}/bin:#{node['gemfire']['config_locator']['gemfire_home']}/bin"
+  end
 end
 
 log 'printing the PATH environment variable' do
@@ -56,8 +60,8 @@ log 'printing the PATH environment variable' do
 end
 
 execute 'start locator' do
-  # command "gfsh run --file=#{locator_start}"
-  command "#{node['gemfire']['config_locator']['gemfire_home']}/bin/gfsh run --file=#{locator_start}"
+  command "gfsh run --file=#{locator_start}"
+  # command "#{node['gemfire']['config_locator']['gemfire_home']}/bin/gfsh run --file=#{locator_start}"
   cwd locator_dir
   user user_name
   group group_name
