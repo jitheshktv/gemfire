@@ -17,5 +17,4 @@ suites:
   - name: gemfire
     run_list:
       - recipe[gemfire-install::default]
-      - recipe[gemfire-locator::default]
     attributes:
