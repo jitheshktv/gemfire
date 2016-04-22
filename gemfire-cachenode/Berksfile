@@ -1,0 +1,5 @@
+source 'https://supermarket.chef.io'
+cookbook 'java', '~> 1.36.0'
+cookbook 'gemfire-install', git: 'https://github.com/jitheshktv/gemfire.git', rel: 'gemfire-install'
+cookbook 'gemfire-locator', git: 'https://github.com/jitheshktv/gemfire.git', rel: 'gemfire-locator'
+metadata
